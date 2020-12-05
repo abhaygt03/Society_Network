@@ -41,7 +41,6 @@ class QuietBox extends StatelessWidget {
               child: Text("Start Searching"),
               onPressed: null,
             ),
-            ),
           ],
         ),
       ),),
