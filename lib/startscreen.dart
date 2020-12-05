@@ -61,7 +61,9 @@ userProvider=Provider.of<UserProvider>(context,listen:false);
   Widget build(BuildContext context) {
     return  Scaffold(
         backgroundColor:UniversalVariables.blackColor,
-        body: PageView(children: <Widget>[
+        body: PageView(
+          physics:new NeverScrollableScrollPhysics(),
+          children: <Widget>[
           Container(child: HomePage(),),
           Container(child: ChatListScreen(userProvider.getUser),),
           Center(child: ProfilePage(userProvider.getUser),)
