@@ -68,8 +68,23 @@ userProvider=Provider.of<UserProvider>(context,listen:false);
         ],
         
         controller:pageController,
-        // onPageChanged: onpagechange
+        onPageChanged: onpagechange
         ),
+        // bottomNavigationBar: Container(
+        //   child:Padding(padding: EdgeInsets.symmetric(vertical:10),
+        //   child: CupertinoTabBar(backgroundColor:UniversalVariables.blackColor,
+        //   items: <BottomNavigationBarItem>[
+
+        //     buildBottomNavigationBarItem(0,"Chats",Icons.chat),
+        //     buildBottomNavigationBarItem(1,"Calls",Icons.call),
+        //     buildBottomNavigationBarItem(2,"Contacts",Icons.contact_phone),
+
+        //   ],
+          // onTap: navigationTapped,
+          // currentIndex: _page,
+        //   ),
+        //   ),
+        // ),
 
           bottomNavigationBar: CurvedNavigationBar(
             color: mainGrey,
