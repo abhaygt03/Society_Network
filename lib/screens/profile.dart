@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:society_network/models/user.dart';
+import 'package:society_network/resources/auth_methods.dart';
+import 'package:society_network/screens/login_screen.dart';
 
 class ProfilePage extends StatefulWidget {
   
@@ -10,8 +12,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final AuthMethods _authMethods = AuthMethods();
 
-  // bool _isOpen = false;
   var _imageList = [
     'images/1.jpg',
     'images/2.jpeg',
@@ -126,7 +128,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   ? (MediaQuery.of(context).size.width - (2 * hPadding)) / 1.6
                   : double.infinity,
               child: FlatButton(
-                onPressed: () => print('Message tapped'),
+                onPressed:()async{
+      final bool isLoggedOut=await _authMethods.signOut();
+         if(isLoggedOut){
+           Navigator.pushAndRemoveUntil(context, 
+           MaterialPageRoute(builder: (context)=>LoginScreen()),
+            (route) => false);
+         } 
+    },
                 color: Colors.blue,
                 textColor: Colors.white,
                 shape: RoundedRectangleBorder(
